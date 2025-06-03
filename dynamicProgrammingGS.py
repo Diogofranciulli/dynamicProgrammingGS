@@ -342,7 +342,7 @@ class SimuladorQueimadas:
         print(f"Incidentes Ativos: {estatisticas['incidentes_ativos']}")
         print(f"Coordenadas Pendentes: {estatisticas['coordenadas_pendentes']}")
 
-        print("\n👥 STATUS DAS EQUIPES:")
+        print("\n STATUS DAS EQUIPES:")
         for equipe in self.equipes:
             print(f"  • {equipe}")
             if equipe.historico_missoes:
@@ -350,7 +350,7 @@ class SimuladorQueimadas:
 
         print(f"\n CONCEITOS DE DYNAMIC PROGRAMMING UTILIZADOS:")
         for conceito in sorted(self.conceitos_utilizados):
-            print(f"  ✓ {conceito}")
+            print(f"   {conceito}")
 
         relatorio_data = {
             'timestamp': datetime.now().isoformat(),
@@ -372,7 +372,6 @@ class SimuladorQueimadas:
             if random.random() > 0.3:  # 70% de chance
                 self.atender_proxima_ocorrencia()
 
-            # Atualiza status
             if i % 2 == 0:
                 self.atualizar_status()
 
@@ -382,24 +381,20 @@ class SimuladorQueimadas:
         print("\n INICIANDO SIMULAÇÃO COMPLETA")
         print("=" * 50)
 
-        # Inserir coordenadas
-        print("\n Fase 1: Inserindo novas coordenadas...")
+        print("\n Inserindo novas coordenadas...")
         for _ in range(8):
             self.inserir_nova_coordenada()
 
-        # Atender ocorrências
-        print("\n Fase 2: Atendendo ocorrências...")
+        print("\n Atendendo ocorrências...")
         while not self.coordenadas_pendentes.vazia() and any(e.status == "Disponível" for e in self.equipes):
             self.atender_proxima_ocorrencia()
             self.atualizar_status()
 
-        #Simular tempo para conclusão
-        print("\n Fase 3: Aguardando conclusão de missões...")
-        for _ in range(20):  # Simular 20 unidades de tempo
+        print("\n Aguardando conclusão de missões...")
+        for _ in range(20):
             self.atualizar_status()
 
-        #Relatório final
-        print("\n Fase 4: Gerando relatório final...")
+        print("\n Gerando relatório final...")
         self.gerar_relatorio_regiao()
         self.listar_historico_equipe()
 
@@ -478,7 +473,7 @@ def menu_principal():
                     print(f"{status} {conceito}: {descricao}")
 
             elif opcao == "0":
-                print("👋 Encerrando simulador. Obrigado!")
+                print(" Encerrando simulador. Obrigado!")
                 break
 
             else:
