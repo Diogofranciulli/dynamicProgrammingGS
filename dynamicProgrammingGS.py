@@ -2,8 +2,13 @@
 SIMULADOR DE RESPOSTA A QUEIMADAS
 Sistema de Coordenação de Equipes de Combate a Incêndios Florestais
 
-Projeto de Programação Dinâmica
-Implementa conceitos de estruturas de dados, algoritmos e otimização
+Projeto de Dynamic Programming
+"""
+
+"""
+Diogo Leles Franciulli - RM:558487
+Felipe Sousa De Oliveira - RM:559085
+Ryan Brito Pereira Ramos - RM:554497
 """
 
 import random
